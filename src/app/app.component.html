@@ -73,10 +73,10 @@
     </div>
 
     <div class="col-4">
-      <p-table [value]="possibleWords">
+      <p-table [value]="potentialPasswords">
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 50%">Possible Words</th>
+            <th style="width: 50%">Potential Passwords</th>
           </tr>
         </ng-template>
         <ng-template
@@ -90,7 +90,7 @@
           </tr>
         </ng-template>
       </p-table>
-      <p-button [outlined]="true" (onClick)="refreshPossibleWords()">
+      <p-button [outlined]="true" (onClick)="refreshPotentialPasswords()">
         <i class="pi pi-refresh"></i>
       </p-button>
       <p class="my-3" *ngIf="errorMessage.length > 0" [ngStyle]="{ color: 'var(--red-700)' }">

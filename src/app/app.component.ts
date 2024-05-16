@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   words: Word[] = [];
-  possibleWords: string[] = []
+  potentialPasswords: string[] = []
   errorMessage: string = "";
 
   addWord() {
@@ -25,9 +25,9 @@ export class AppComponent {
     this.words.splice(index, 1)
   }
 
-  refreshPossibleWords(){
+  refreshPotentialPasswords(){
 
-    this.possibleWords = []
+    this.potentialPasswords = []
 
     if(this.words.length <= 0) return
 
@@ -52,13 +52,13 @@ export class AppComponent {
     this.errorMessage = ""
 
     for(let word of this.words){
-      this.possibleWords.push(word.word.toUpperCase())
+      this.potentialPasswords.push(word.word.toUpperCase())
     }
 
     for(let word of this.words){
       if(word.correctLetters > 0){
-        let wordIndex = this.possibleWords.indexOf(word.word.toUpperCase())
-        this.possibleWords.splice(wordIndex, 1)
+        let wordIndex = this.potentialPasswords.indexOf(word.word.toUpperCase())
+        this.potentialPasswords.splice(wordIndex, 1)
         for(let wordForComparison of this.words){
           if(word.word.toUpperCase() == wordForComparison.word.toUpperCase()) continue;
           let equalLetters = 0
@@ -68,9 +68,9 @@ export class AppComponent {
             }
           }
           if(equalLetters != word.correctLetters){
-            let index = this.possibleWords.indexOf(wordForComparison.word.toUpperCase())
+            let index = this.potentialPasswords.indexOf(wordForComparison.word.toUpperCase())
             if(index >= 0){
-              this.possibleWords.splice(index, 1)
+              this.potentialPasswords.splice(index, 1)
             }
           }
         }
