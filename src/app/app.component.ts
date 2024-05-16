@@ -69,7 +69,9 @@ export class AppComponent {
           }
           if(equalLetters != word.correctLetters){
             let index = this.possibleWords.indexOf(wordForComparison.word.toUpperCase())
-            this.possibleWords.splice(index, 1)
+            if(index >= 0){
+              this.possibleWords.splice(index, 1)
+            }
           }
         }
       }
