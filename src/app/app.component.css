@@ -1,0 +1,4 @@
+tr, th, td, h1, p, p-cellEditor{
+    color: 'var(--primary-color)';
+    font-family: monospace;
+}
