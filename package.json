@@ -1,6 +1,6 @@
 {
   "name": "fallout-codebreaker",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "electron-forge start",
@@ -55,11 +55,21 @@
   },
   "main": "main-electron.js",
   "build": {
+    "appId": "com.fallout-codebreaker.id",
+    "productName": "Fallout Codebreaker",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "main-electron.js",
+      "package.json"
+    ],
     "win": {
       "target": [
         "msi"
       ],
-      "icon": "src/cat_icon.png"
+      "icon": "src/science.png"
     }
   }
 }
