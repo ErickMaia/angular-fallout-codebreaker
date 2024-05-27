@@ -9,7 +9,14 @@
   </header>
 
   <div class="row">
-    <div class="col-8">
+    <p class="mt-2">{{"Word count: " + words.length + "."}}</p>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <p-button class="col-8" [outlined]="true" (onClick)="addWord()">
+        <i class="pi pi-plus"></i>
+      </p-button>
       <p-table
         [value]="words"
         dataKey="id"
@@ -67,12 +74,15 @@
           </tr>
         </ng-template>
       </p-table>
-      <p-button class="col-8" [outlined]="true" (onClick)="addWord()">
-        <i class="pi pi-plus"></i>
-      </p-button>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-md-4">
+      <p-button [outlined]="true" (onClick)="refreshPotentialPasswords()">
+        <i class="pi pi-refresh"></i>
+      </p-button>
+      <p class="my-3" *ngIf="errorMessage.length > 0" [ngStyle]="{ color: 'var(--red-700)' }">
+        {{ errorMessage }}
+      </p>
       <p-table [value]="potentialPasswords">
         <ng-template pTemplate="header">
           <tr>
@@ -90,12 +100,6 @@
           </tr>
         </ng-template>
       </p-table>
-      <p-button [outlined]="true" (onClick)="refreshPotentialPasswords()">
-        <i class="pi pi-refresh"></i>
-      </p-button>
-      <p class="my-3" *ngIf="errorMessage.length > 0" [ngStyle]="{ color: 'var(--red-700)' }">
-        {{ errorMessage }}
-      </p>
     </div>
   </div>
 </div>
